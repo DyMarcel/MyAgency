@@ -6,10 +6,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "cocur/slugify": "^4.0",
-        "composer/package-versions-deprecated": "*",
-        "doctrine/doctrine-bundle": "^2",
-        "doctrine/doctrine-migrations-bundle": "^2",
-        "doctrine/orm": "^2",
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/asset": "5.0.*",
         "symfony/console": "5.0.*",
@@ -23,8 +19,8 @@
         "symfony/mailer": "5.0.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "5.0.*",
+        "symfony/orm-pack": "*",
         "symfony/process": "5.0.*",
-        "symfony/proxy-manager-bridge": "5.0.*",
         "symfony/security-bundle": "5.0.*",
         "symfony/serializer-pack": "*",
         "symfony/string": "5.0.*",
@@ -32,11 +28,11 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
-        "symfony/yaml": "5.0.*"
+        "symfony/yaml": "5.0.*",
     },
     "require-dev": {
         "symfony/debug-pack": "*",
-        "symfony/maker-bundle": "^1.28",
+        "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*"
     },
@@ -85,6 +81,5 @@
             "allow-contrib": false,
             "require": "5.0.*"
         }
-        
     }
 }
