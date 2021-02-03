@@ -47,7 +47,7 @@ class PropertyController extends AbstractController
                 /* recupére les property et les affiche dans une pagination*/
 
         $properties = $paginator->paginate(
-            $this->repository->findAllVisibleQuery($search),
+            $this->repository->findAllVisibleQuery(),
             $request->query->getInt('page', 1), /*page number*/
             12 /*limit per page*/
         );
