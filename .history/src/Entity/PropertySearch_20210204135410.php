@@ -75,7 +75,7 @@ class PropertySearch {
     /**
      * @param ArrayCollection $options
      */
-    public function setOptions(ArrayCollection $options): void
+    public function setOption(ArrayCollection $options): void
     {
         $this->options = $options;
     }

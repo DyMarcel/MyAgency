@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Option;
 use App\Entity\PropertySearch;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

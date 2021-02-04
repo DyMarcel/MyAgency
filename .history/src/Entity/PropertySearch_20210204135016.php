@@ -37,11 +37,11 @@ class PropertySearch {
     /**
      *@var ArrayCollection
      */
-    private $options;
+    private $option;
 
     public function __construct()
     {
-        $this->options = new ArrayCollection();
+        $this->option = new ArrayCollection();
     }
 
     /**
@@ -62,22 +62,6 @@ class PropertySearch {
     {
         $this->minSurface = $minSurface;
         return $this;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getOptions(): ArrayCollection
-    {
-        return $this->options;
-    }
-
-    /**
-     * @param ArrayCollection $options
-     */
-    public function setOptions(ArrayCollection $options): void
-    {
-        $this->options = $options;
     }
 
 

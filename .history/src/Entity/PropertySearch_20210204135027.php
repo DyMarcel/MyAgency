@@ -64,21 +64,5 @@ class PropertySearch {
         return $this;
     }
 
-    /**
-     * @return ArrayCollection
-     */
-    public function getOptions(): ArrayCollection
-    {
-        return $this->options;
-    }
-
-    /**
-     * @param ArrayCollection $options
-     */
-    public function setOptions(ArrayCollection $options): void
-    {
-        $this->options = $options;
-    }
-
 
 }

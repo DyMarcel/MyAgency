@@ -24,7 +24,7 @@ class PropertyType extends AbstractType
             ->add('heat', ChoiceType::class,[
                 'choices' => $this->getChoices()
             ])
-            ->add('options', EntityType::class, [
+            ->add('option', EntityType::class, [
                 'class' => Option::class,
                 'choice_label' => 'name',
                 'multiple' => true
