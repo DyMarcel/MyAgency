@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title property.title %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% if property.filename %}
+                        <img src="{{ vich_uploader_asset(property, 'imageFile') | imagine_filter('medium') }}" alt="card-img-top" style="height:auto; width: 100%;">
+                        {% else %}
+                            <img src="{{ '/images/properties/emo-maison.jpg' | imagine_filter('medium') }}" alt="card-img-top" style="height:auto; width: 100%;">
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <h1>{{ property.title }}</h1>
+                    <h2>{{ property.rooms }} pièce - {{ property.surface }} m²</h2>
+                    <div class="text-primary" style="font-size: 4rem;font-weight: bold;">{{ property.formattedPrice }} €</div>
+                    <a href="#" class="btn btn-primary">Contacter l'agence</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+       
+
+    <p>
+        {{ property.description | nl2br }}
+    </p>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Caractéristique</h2>
+            <table class="table table-striped">
+                <tr>
+                    <td>Surface habitable</td>
+                    <td>{{ property.surface }} m²</td>
+                </tr>
+                <tr>
+                    <td>Pièce</td>
+                    <td>{{ property.rooms }}</td>
+                </tr>
+                <tr>
+                    <td>Chambre</td>
+                    <td>{{ property.bedrooms }}</td>
+                </tr>
+                <tr>
+                    <td> Etage</td>
+                    <td>{{ property.floor }}</td>
+                </tr>
+                <tr>
+                    <td>Chauffage</td>
+                    <td>{{ property.heatType }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h2>Spécificité</h2>
+        </div>
+    </div>
+{% endblock %}
+
+
+
