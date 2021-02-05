@@ -7,7 +7,6 @@ use App\Entity\Property;
 use App\Entity\PropertySearch;
 use App\Form\ContactType;
 use App\Form\PropertySearchType;
-use App\Notification\ContactNotification;
 use App\Repository\PropertyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -65,30 +64,19 @@ class PropertyController extends AbstractController
      * @param Property $property
      * @return Response
      */
-    public function show(Property $property, string $slug, Request $request, ContactNotification $contactNotification): Response
+    public function show(Property $property, string $slug): Response
     {
-        
+        $contact = new Contact();
+        $contact->setProperty($property);
+        $form = $this->createForm(ContactType::class, $contact);
+
+
         if ($property->getSlug() !== $slug){
             return $this->redirectToRoute('property.show', [
             'id' => $property->getId(),
             'slug' => $property->getSlug()
             ], 301  );
         }
-
-        $contact = new Contact();
-        $contact->setProperty($property);
-        $form = $this->createForm(ContactType::class, $contact);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-            $contactNotification->notify($contact);
-            $this->addFlash('sucess', 'Votre email a bien été envoyé');
-            return $this->redirectToRoute('property.show', [
-                'id' => $property->getId(),
-                'slug' => $property->getSlug()
-                ]);
-        }
-
         return $this->render('property/show.html.twig', [
             'property' =>$property,
             'current_menu'=> 'properties',

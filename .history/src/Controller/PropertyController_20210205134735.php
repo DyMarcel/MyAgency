@@ -7,7 +7,6 @@ use App\Entity\Property;
 use App\Entity\PropertySearch;
 use App\Form\ContactType;
 use App\Form\PropertySearchType;
-use App\Notification\ContactNotification;
 use App\Repository\PropertyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -65,9 +64,11 @@ class PropertyController extends AbstractController
      * @param Property $property
      * @return Response
      */
-    public function show(Property $property, string $slug, Request $request, ContactNotification $contactNotification): Response
+    public function show(Property $property, string $slug, Request $request): Response
     {
         
+
+
         if ($property->getSlug() !== $slug){
             return $this->redirectToRoute('property.show', [
             'id' => $property->getId(),
@@ -81,7 +82,6 @@ class PropertyController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            $contactNotification->notify($contact);
             $this->addFlash('sucess', 'Votre email a bien été envoyé');
             return $this->redirectToRoute('property.show', [
                 'id' => $property->getId(),
